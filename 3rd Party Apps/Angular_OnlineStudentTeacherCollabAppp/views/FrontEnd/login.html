@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="content/FrontEnd/assets/css/style.css" />
+
+<main
+	class="login-body"
+	data-vide-bg="content/FrontEnd/assets/img/login-bg.mp4"
+>
+	<!-- Login Admin -->
+	<form  class="form-default" name="myForm" novalidate>
+		<div class="login-form">
+			<!-- logo-login -->
+			<div class="logo-login">
+				<a href="#!"
+					><img src="content/FrontEnd/assets/img/logo/loder.png" alt=""
+				/></a>
+			</div>
+			<h2>Login Here</h2>
+			<div class="form-input">
+				<label for="name">Email</label>
+				<input type="email" name="email" ng-model="email" placeholder="Email" required/>
+				<span ng-show="myForm.email.$touched && myForm.email.$invalid.required "> * Email cannot be empty </span>
+                <span ng-show="myForm.email.$touched && myForm.email.$invalid "> *is not a valid email </span>
+			</div>
+			<div class="form-input">
+				<label for="name">Password</label>
+				<input type="password" name="password" ng-model="password" placeholder="Password"  required/>
+				<span ng-show="myForm.password.$touched && myForm.password.$invalid "> * password cannot be empty </span>
+			</div>
+			<div class="form-input pt-30">
+				<input type="submit" ng-disabled="myForm.$invalid" ng-click="CheckAuth()" value="login" /> 
+			</div>
+
+			<!-- Forget Password -->
+			<a href="#" class="forget"  style="text-decoration: none;">Forget Password</a>
+			<!-- Forget Password -->
+			<a href="#!registration" class="registration"  style="text-decoration: none;">Registration</a>
+		</div>
+	</form>
+	<!-- /end login form -->
+</main>
+

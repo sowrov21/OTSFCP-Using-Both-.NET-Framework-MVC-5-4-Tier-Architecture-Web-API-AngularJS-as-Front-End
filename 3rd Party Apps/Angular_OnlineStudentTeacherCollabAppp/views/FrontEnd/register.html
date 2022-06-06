@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="content/FrontEnd/assets/css/style.css" />
+
+
+<main class="login-body" data-vide-bg="content/FrontEnd/assets/img/login-bg.mp4">
+    <!-- Login Admin -->
+    <form class="form-default" name="myForm" novalidate>
+        
+        <div class="login-form">
+            <!-- logo-login -->
+            <div class="logo-login">
+                <a href="index.html"><img src="content/FrontEnd/assets/img/logo/loder.png" alt=""></a>
+            </div>
+            <h2>Registration Here</h2>
+
+            <div class="form-input">
+                <label for="name">Full name</label>
+                <input type="text" ng-minlength="3" ng-maxlength="20" name="username" ng-model="user.userName" class="form-control" placeholder="Enter Name" required>
+                <span ng-show="myForm.username.$touched && myForm.username.$invalid.required "> * Name cannot be empty </span>
+                <span ng-show="myForm.username.$dirty && myForm.username.$error.minlength "> * Too short</span>
+                <span ng-show="myForm.username.$dirty && myForm.username.$error.maxlength "> *Max length reached</span>
+            </div>
+            <div class="form-input">
+                <label for="name">Email Address</label>
+               
+                <input type="email" name="email" ng-model="user.userEmail" class="form-control"  placeholder="Enter email" required>
+                <span ng-show="myForm.email.$touched && myForm.email.$invalid.required "> * Email cannot be empty </span>
+                <span ng-show="myForm.email.$touched && myForm.email.$invalid "> *is not a valid email </span>
+           
+            </div>
+            <div class="form-input">
+                <label for="name">Phone</label>
+                <input type="number" name="number"  ng-minlength="11" name="phone" ng-model="user.userPhone" class="form-control"  placeholder="018********" required>
+                <span ng-show="myForm.number.$dirty && myForm.number.$error.minlength "> *phonenumber must be 11 Digit</span>
+    
+            </div>
+            <div class="form-input">
+                <label for="name">Date of Birth</label>
+                    <input type="date" name="DOB" ng-model="user.userDOB"  class="form-control datetimepicker-input" required>
+      
+                    <span ng-show="myForm.DOB.$touched && myForm.DOB.$invalid "> *Must put date of birth</span>
+           
+                </div>
+            <div class="form-input">
+                <label for="name">Password</label>
+                    <input type="password"  ng-minlength="6" ng-maxlength="20" name="password" ng-model="user.userPassword" class="form-control" id="exampleInputPassword1" placeholder="Password" required> 
+                    <span ng-show="myForm.password.$touched && myForm.password.$invalid.required "> * Name cannot be empty </span>
+                      <span ng-show="myForm.password.$dirty && myForm.password.$error.minlength "> * Too short password. Min 6 character</span>
+                      <span ng-show="myForm.password.$dirty && myForm.password.$error.maxlength "> *Max length reached</span>
+            </div>
+
+            <div class="form-input">
+                <label for="name">User Type</label>
+                    <select name="type" ng-model="user.roleId" class="form-control" required>
+                        <option ng-value="2">Teacher</option>
+                        <option ng-value="3">Student</option>
+                      </select>
+
+                      <span ng-show="myForm.type.$touched && myForm.type.$invalid "> * type cannot be empty </span>
+            </div>
+
+            <input type="hidden" ng-init="user.isVerified=0" ng-model="user.isVerified" >
+            <input type="hidden" ng-init="user.isActive=1" ng-model="user.isActive" >
+            <div class="form-input pt-30">
+                <input type="submit"  ng-disabled="myForm.$invalid" ng-click="adduser()"  value="Sign up" >
+            </div>
+            <!-- Forget Password -->
+            Already have anaccount? <a href="#!login" class="registration" style="text-decoration: none;">login</a>
+        </div>
+    </form>
+    <!-- /end login form -->
+</main>

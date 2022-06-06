@@ -1,0 +1,135 @@
+
+		<!-- Theme style -->
+        <link rel="stylesheet" href="content/BackEnd/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="content/Custom/User.css">
+
+        <div class="hold-transition sidebar-mini layout-fixed">
+          <div class="wrapper">
+            <!-- Navbar -->
+            <div ng-include="'views/BackEnd/admin/layouts/top-nav.html'"></div>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+        
+            <div ng-include="'views/BackEnd/admin/layouts/sidebar.html'"></div>
+            
+        
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+              <!-- Content Header (Page header) -->
+              <div class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Post Manage</h1>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item active">All Post</li>
+                      </ol>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+              </div>
+              <!-- /.content-header -->
+        
+              <!-- Main content -->
+              
+              
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">All Post Information</h3><br>
+                      <a href="#!addpost"  class="btn btn-success">Add New Post</a>
+            
+                      <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                          <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+            
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                      <table class="table table-hover text-nowrap">
+                        <thead>
+                          <tr >
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Course</th>
+                            <th>Status</th>
+                            <th>Created At</th>              
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat=" u in Posts">
+                            <td>{{$index}}</td>
+                            <td>{{u.postTitle}}</td>
+                            <td>{{u.user_userName}}</td>
+                            <td>{{u.subject_subjectName}}</td>
+                            <td>{{u.status_statusName}}</td>
+                            <td>{{u.postTime | date : "dd.MM.y"}}</td>
+
+                            
+                            <td>
+                                <a href="#!postedit/{{u.postId}}"  class="btn btn-success">Edit</a>
+                                <a  href="#!postdetails/{{u.postId}}" class="btn btn-primary">Details</a>
+                                <a href="#!postdelete/{{u.postId}}"  class="btn btn-danger" >Delete</a>
+                               
+                                <div ng-if="u.statusId==1 || u.statusId==3">
+
+                                  <a href="#!approveof/{{u.postId}}/to/2" title="Click to Approve" class="btn text-danger">
+                                    <i class="fas fa-times"></i>
+                                </a>
+
+                                
+                                </div> 
+                                <div ng-if="u.statusId==2">
+                                  <a href="#!approveof/{{u.postId}}/to/3" title="Click to Reject" class="btn text-success">
+                                    <i class="fas fa-check"></i>
+                                    
+                                </a>
+                                </div>
+                               
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
+                </div>
+              </div>
+              
+              
+              <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <div ng-include="'views/BackEnd/admin/layouts/footer.html'"></div>
+        
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+              <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+          </div>
+
+
+        
+        </div>
+
+ 
+ <!-- page script -->    
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9273e590619d46d8ab722a9500ed0de6" Name="Diagram1">
+        <EntityTypeShape EntityType="TeacherStudentForumModel.Order" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentForumModel.Post" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentForumModel.Reply" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentForumModel.Role" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentForumModel.Status" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentForumModel.Subject" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentForumModel.User" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Order_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Post_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Post_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Posts_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Reply_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Reply_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Subjects_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="TeacherStudentForumModel.FK_Course_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

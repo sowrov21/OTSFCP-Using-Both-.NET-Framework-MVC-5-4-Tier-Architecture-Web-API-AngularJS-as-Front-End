@@ -1,0 +1,138 @@
+
+		<!-- Theme style -->
+        <link rel="stylesheet" href="content/BackEnd/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="content/Custom/User.css">
+
+        <div class="hold-transition sidebar-mini layout-fixed">
+          <div class="wrapper">
+            <!-- Navbar -->
+            <div ng-include="'views/BackEnd/admin/layouts/top-nav.html'"></div>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+        
+            <div ng-include="'views/BackEnd/admin/layouts/sidebar.html'"></div>
+            
+        
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+              <!-- Content Header (Page header) -->
+              <div class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Dashboard</h1>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                      </ol>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+              </div>
+              <!-- /.content-header -->
+        
+              <!-- Main content -->
+              
+              <div class="col-md-8">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Edit User Information</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form role="form">
+                    <div class="card-body">
+
+                    <div class="form-group">
+                            
+                        <label for="exampleInputEmail1">User Name</label>
+                         <input type="text" ng-model="user.userName" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                    
+                    </div> 
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" ng-model="user.userEmail" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Phone Number</label>
+                        <input type="text" ng-model="user.userPhone" class="form-control" id="exampleInputEmail1" placeholder="018********">
+                      </div>
+
+
+                      
+                    <div class="form-group">
+                            
+                        <label for="exampleInputEmail1">Date of Birth</label>
+                         <input type="text" ng-model="user.userDOB" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                    
+                    </div> 
+
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password"  ng-model="user.userPassword" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+
+                      <div class="form-group">
+                        <label>User Type</label>
+                        <select
+                        ng-model="user.roleId"
+                        class="form-control"
+                    >
+                        <option ng-value="{{user.roleId}}" style="display: none" selected>
+                            {{user.role_roleName}}
+                        </option>
+
+                        <option
+                            ng-repeat=" r in roles"
+                            ng-value="{{r.roleId}}"
+                        >
+                            {{r.roleName}}
+                        </option>
+                    </select>
+                      </div>
+
+                       
+                      <input type="hidden" ng-model="user.isVerified">
+                      <input type="hidden" ng-model="user.isActive">
+
+                    <!-- /.card-body -->
+    
+                    <div class="card-footer">
+                      <button type="submit" ng-click="updateuser()" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card -->
+    
+              </div>
+              
+              
+              <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <div ng-include="'views/BackEnd/admin/layouts/footer.html'"></div>
+        
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+              <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+          </div>
+
+
+        
+        </div>
+
+ 
+ <!-- page script -->    
+

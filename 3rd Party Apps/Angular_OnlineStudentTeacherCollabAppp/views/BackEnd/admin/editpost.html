@@ -1,0 +1,144 @@
+
+		<!-- Theme style -->
+        <link rel="stylesheet" href="content/BackEnd/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="content/Custom/User.css">
+
+          <!-- summernote -->
+ 
+
+        <div class="hold-transition sidebar-mini layout-fixed">
+          <div class="wrapper">
+            <!-- Navbar -->
+            <div ng-include="'views/BackEnd/admin/layouts/top-nav.html'"></div>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+        
+            <div ng-include="'views/BackEnd/admin/layouts/sidebar.html'"></div>
+            
+        
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+              <!-- Content Header (Page header) -->
+              <div class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Post Manage</h1>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item active">Post edit</li>
+                      </ol>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+              </div>
+              <!-- /.content-header -->
+        
+              <!-- Main content -->
+              
+              <div class="col-md-10">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Edit Post Information</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form  name="myForm" novalidate>
+                    <div class="card-body">
+
+                    <div class="form-group">
+                            
+                        <label for="exampleInputEmail1">Post Title</label>
+                         <input type="text" name="title" ng-model="post.postTitle" class="form-control" ng-minlength="5" ng-maxlength="30" id="exampleInputEmail1" placeholder="Enter Name">
+
+                         <span ng-show="myForm.title.$touched && myForm.title.$invalid.required "> * Title cannot be empty </span>
+                         <span ng-show="myForm.title.$dirty && myForm.title.$error.minlength "> * Too short title</span>
+                         <span ng-show="myForm.title.$dirty && myForm.title.$error.maxlength "> *Max length reached</span>
+            
+                    </div> 
+
+ 
+
+                      <div class="form-group">
+                        <label>Post Topic</label>
+                        <select
+                        ng-model="post.courseId"
+                        class="form-control"
+                        required
+                    >
+                        <option ng-value="{{post.courseId}}" style="display: none" selected>
+                            {{post.subject_subjectName}}
+                        </option>
+
+                        <option
+                            ng-repeat=" s in subjects"
+                            ng-value="{{s.subjectId}}"
+                        >
+                            {{s.subjectName}}
+                        </option>
+                    </select>
+                      </div>
+
+
+                      <div class="form-group-file">
+                        <div class="card-body pad">
+                          <div class="mb-3">
+                              <label >Writhing Area</label>
+                             
+                              <textarea name="description" ng-model="post.postText" class="form-control" placeholder="Write Someting Amaizing....." required>  </textarea>
+                          
+                          
+                            </div>
+
+                            <span ng-show="myForm.description.$touched && myForm.description.$invalid.required "> * Descripion cannot be empty </span>
+                 <span ng-show="myForm.description.$dirty && myForm.description.$error.minlength "> * Too short description</span>
+                 <span ng-show="myForm.description.$dirty && myForm.description.$error.maxlength "> *Max length reached</span>
+                      </div>
+                      </div>
+                       
+                      <input type="hidden" ng-model="post.userId">
+                      <input type="hidden" ng-model="post.statusId">
+                      <input type="hidden" ng-model="post.postTime">
+
+                    <!-- /.card-body -->
+    
+                    <div class="card-footer">
+                      <button type="submit" ng-click="updatePost()" class="btn btn-primary">Update</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card -->
+    
+              </div>
+              
+              
+              <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <div ng-include="'views/BackEnd/admin/layouts/footer.html'"></div>
+        
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+              <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+          </div>
+
+
+        
+        </div>
+
+
+    
+
+
+ 
+ <!-- page script -->    
+
